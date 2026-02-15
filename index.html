@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Image Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+
+<body class="light-theme">
+  
+<select id="themeToggle">
+  <option value="light">Light</option>
+  <option value="dark">Dark</option>
+  <option value="neon">Neon</option>
+  <option value="ocean">Ocean</option>
+  <option value="sunset">Sunset</option>
+  <option value="cyber">Cyber</option>
+</select>
+
+
+<img id="preview" />
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <h2>AI Image Generator</h2>
+  </header>
+
+
+  <main class="container">
+
+    <div class="form-and-image">
+
+      <!-- FORM -->
+<section class="form-container">
+
+  <!-- PROMPT -->
+  <textarea
+    class="form-container__prompt-input"
+    id="prompt"
+    rows="5"
+    placeholder="Describe your image..."
+  ></textarea>
+
+
+  <!-- REFERENCE BUTTON -->
+  <div class="reference-row">
+
+    <button
+      class="reference-btn"
+      onclick="openReferencePicker()"
+      type="button"
+    >
+      +
+    </button>
+
+    <span id="referenceName">
+      No reference selected
+    </span>
+
+    <input
+      type="file"
+      id="referenceImage"
+      accept="image/*"
+      hidden
+    >
+
+  </div>
+
+
+  <!-- DROPDOWNS -->
+  <div class="form-container__dropdown-group">
+
+    <select
+      class="form-container__dropdown"
+      id="dropdownStyles"
+    >
+      <option value="realistic">Realistic</option>
+      <option value="anime">Anime</option>
+      <option value="pixel">Pixel Art</option>
+    </select>
+
+    <select
+      class="form-container__dropdown"
+      id="dropdownRatio"
+    >
+      <option value="1:1">1:1</option>
+      <option value="16:9">16:9</option>
+      <option value="9:16">9:16</option>
+    </select>
+
+  </div>
+
+
+  <!-- BUTTON -->
+  <button
+    class="form-container__button"
+    onclick="generateImage()"
+  >
+    Generate Image
+  </button>
+
+</section>
+
+
+
+      <!-- IMAGE -->
+      <section class="image-container">
+
+        <img id="imageResult" src="example.jpeg">
+
+        <button onclick="downloadImage()" class="download-btn">
+          <box-icon name="download"></box-icon>
+        </button>
+
+
+        <div class="loader">
+          <span>Generating...</span>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
